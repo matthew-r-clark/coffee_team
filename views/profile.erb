@@ -1,0 +1,19 @@
+<h2><%= @username %></h2>
+<div class="edit-user">
+  <p>
+    <label>Full Name:</label> 
+    <%= @full_name %>
+  </p>
+  <p>
+    <label>Email:</label>
+    <%= @email %>
+  </p>
+  <p>
+    <label>Favorite Brew Method:</label>
+    <%= @brew_method %>
+  </p>
+</div>
+
+<% if @username == session[:username] %>
+  <a class="btn-primary" href="/profile/<%= @username %>/edit">Edit Profile</a>
+<% end %>

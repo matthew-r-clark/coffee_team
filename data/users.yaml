@@ -1,0 +1,23 @@
+---
+:admin:
+  :password: secret
+:mattata:
+  :full_name: Matt Clark
+  :email: clark.matthewr@gmail.com
+  :brew_method: Aeropress
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$6xcE5cGHFITW227qtHDkKuwqhyRLf0bAXVhQL2I8ZTFh.5JwLQ6tm"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$6xcE5cGHFITW227qtHDkKu"
+    checksum: wqhyRLf0bAXVhQL2I8ZTFh.5JwLQ6tm
+:john:
+  :full_name: John Wayne
+  :email: jwayne@yahoo.com
+  :brew_method: v60
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$TUK7nKdJGJV3l3tl.9wuzOK8WBhLVkFSEf3AQOnubFWBHUJFqFsWS"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$TUK7nKdJGJV3l3tl.9wuzO"
+    checksum: K8WBhLVkFSEf3AQOnubFWBHUJFqFsWS

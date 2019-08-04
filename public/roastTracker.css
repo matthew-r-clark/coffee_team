@@ -1,0 +1,70 @@
+#tracker-wrapper{
+	background-color: #1b72af;
+	color: white;
+	font-size: 18px;
+	font-family: arial;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 10px;
+	padding: 10px;
+	width: 800px;
+	margin: auto;
+}
+
+h1{
+	text-align: center;
+	font-family: arial;
+	color: #1b72af;
+}
+
+#chart{
+	width: 800px;
+	margin: auto;
+}
+
+#left-wrap, #right-wrap{
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px;
+}
+
+#bar{
+	display: inline-block;
+	background-color: white;
+	z-index: 1000;
+	vertical-align: middle;
+}
+
+button{
+	border: none;
+	border-radius: 5px;
+	background-color: white;
+	color: #1b72af;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 5px;
+}
+
+table{
+	margin: auto;
+	text-align: right;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+input{
+	border-radius: 5px;
+	border: none;
+	padding: 5px;
+	color: #1b72af;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.left-align{
+	text-align: left;
+}
+
+#reset-button{
+	margin: 10px;
+}

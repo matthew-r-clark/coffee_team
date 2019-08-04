@@ -1,0 +1,31 @@
+<h2>Editing <%= @username %>'s profile</h2>
+
+<form action="/profile/<%= @username %>/edit" method="post">
+  <div class="edit-user">
+    <p>
+      <label>Username: </label>
+      <input name="username" placeholder="cannot be blank" value="<%= @username %>"><br>
+    </p>
+    <p>
+      <label>Full Name: </label>
+      <input name="name" placeholder="removes value if blank" value="<%= @full_name %>"><br>
+    </p>
+    <p>
+      <label>Email: </label>
+      <input name="email" placeholder="removes value if blank" value="<%= @email %>"><br>
+    </p>
+    <p>
+      <label>Favorite Brew Method: </label>
+      <input name="brew" placeholder="removes value if blank" value="<%= @brew_method %>"><br>
+    </p>
+    <p>
+      <label>Password: </label>
+      <input name="password" placeholder="leave blank to keep current" value=""><br>
+    </p>
+  </div>
+  <button type="submit">Update Info</button>
+</form>
+
+<form action="/profile/<%= @username %>/delete" method="post">
+  <button id="del-btn" type="submit">Delete Account</button>
+</form>
