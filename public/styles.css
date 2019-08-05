@@ -11,9 +11,6 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   background-color: #fff;
   text-align: center;
   color: #0c71b9;
@@ -40,7 +37,6 @@ header {
 }
 
 #logo {
-  /* background-image: url("Assets/Coffee-Team-Logo-White.png"); */
   transition-duration: 0.5s;
   margin: 10px;
   margin-left: 25px;
@@ -149,7 +145,7 @@ button:hover, .btn-primary:hover {
   background-color: #149dff;
 }
 
-input, #forum-post {
+input, #forum-post, textarea {
   border-radius: 10px;
   padding: 5px;
   background-color: #eeeeee;
@@ -264,14 +260,11 @@ p {
   display: table-cell;
 }
 
-.members {
-  display: table;
-  height: 100%;
-  width: 100%;
+div.edit-user p label {
+  font-weight: normal;
 }
 
 #members-list {
-  display: table-cell;
   background-color: #0c71b9;
   width: 150px;
   height: 100%;
@@ -288,13 +281,16 @@ p {
   opacity: .5;
 }
 
-#main-content {
-  display: table-cell;
-  height: 100%;
+#recipe-list {
+  width: 100%;
 }
 
-div.edit-user p label {
-  font-weight: normal;
+.recipe-title {
+  text-align: right;
+}
+
+.recipe-author {
+  text-align: left;
 }
 
 #del-btn {
@@ -321,9 +317,56 @@ div.edit-user p label {
 }
 
 #msg-list li {
-  padding-top: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #eeeeee;
+  margin: 10px;
 }
 
 .msg-content {
   font-weight: normal;
+}
+
+#msg-forum {
+  margin-top: 50px;
+}
+
+.msg-data {
+  display: inline-table;
+  width: 100%;
+}
+
+.username {
+  text-align: left;
+}
+
+.time {
+  text-align: right;
+}
+
+hr.forum-post {
+  border-top: 1px solid #0c71b9;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+table.recipe {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #eeeeee;
+  margin: 10px;
+}
+
+.left-just {
+  text-align: left;
+}
+
+.right-just {
+  text-align: right;
+}
+
+.spacer {
+  height: 2px;
+  background-color: #fff;
+  opacity: .125;
 }

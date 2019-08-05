@@ -7,4 +7,5 @@ gem "sinatra-contrib"
 gem "erubis"
 gem "rack-test"
 gem "minitest"
+gem "redcarpet"
 gem 'bcrypt', '~> 3.1', '>= 3.1.13'

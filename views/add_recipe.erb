@@ -1,0 +1,24 @@
+<h2>Contribute a Recipe</h2>
+
+<form action="/community/recipes/add" method="post">
+  <div class="add-recipe">
+    <p>
+      <label>Title: </label>
+      <input name="title" value="" autofocus><br>
+    </p>
+    <p>
+      <label>Brew Method: </label>
+      <input name="brew_method" value=""><br>
+    </p>
+    <p>
+      <label style="vertical-align: top;">Steps: </label>
+      <textarea name="content" value=""></textarea><br>
+    </p>
+  </div>
+  <button type=submit>Post Recipe</button>
+</form>
+
+<% content_for :sub_menu do %>
+  <li><a class="nav-button" href="/community">General</a></li>
+  <li><a class="nav-button" href="/community/recipes">Recipes</a></li>
+<% end %>

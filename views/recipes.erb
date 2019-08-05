@@ -1,6 +1,21 @@
-No content yet.
+<h2>community recipes</h2>
+
+<a href="/community/recipes/add" class="btn-primary">Add Recipe</a>
+
+<table id="recipe-list">
+  <% get_recipes.each do |id, recipe| %>
+    <tr>
+      <td>
+        <a class="right-just" href="/community/recipes/<%= id %>"><%= recipe[:title] %></a>
+      </td>
+      <td>
+        <a class="left-just" href="/profile/<%= recipe[:username] %>"><%= recipe[:username] %></a>
+      </td>
+    </tr>
+  <% end %>
+</table>
 
 <% content_for :sub_menu do %>
-  <li><a class="nav-button" href="/community/general">General</a></li>
+  <li><a class="nav-button" href="/community">General</a></li>
   <li><a class="nav-button" href="/community/recipes">Recipes</a></li>
 <% end %>

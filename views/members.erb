@@ -1,0 +1,13 @@
+<div id="members-list">
+    <ul>
+      <% users.keys.map(&:to_s).each do |user| %>
+        <li><a href="/profile/<%= user %>"><%= user %></a></li>
+      <% end %>
+    </ul>
+  </div>
+
+<% content_for :sub_menu do %>
+<li><a class="nav-button" href="/community">General</a></li>
+<li><a class="nav-button" href="/community/recipes">Recipes</a></li>
+<li><a class="nav-button" href="/community/members">Members</a></li>
+<% end %>

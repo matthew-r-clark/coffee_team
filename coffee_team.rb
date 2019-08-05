@@ -3,8 +3,8 @@ require "sinatra/reloader" #if development?
 require "sinatra/content_for"
 require "tilt/erubis"
 require "yaml"
+require "redcarpet"
 require "bcrypt"
-require "date"
 
 configure do
   enable :sessions
@@ -24,6 +24,39 @@ helpers do
   def get_forum_posts
     forum_data.to_a.reverse.to_h
   end
+
+  def get_recipes
+    recipe_data.sort_by { |_, item| item[:title] }
+  end
+
+  def format_time(time)
+    time.strftime("%b %-d, %Y   %l:%M %P")
+  end
+
+  def render_markdown(content)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    markdown.render(content)
+  end
+end
+
+def recipe_data
+  filepath = "./data/recipes.yaml"
+  YAML.load(File.read(filepath))
+end
+
+def post_recipe(title, brew_method, content)
+  data = recipe_data || {}
+  username = session[:username].to_s
+  time = Time.now
+  message_id = data.keys.empty? ? 1 : data.keys.max + 1
+  data[message_id] = {
+    username: username,
+    time: time,
+    title: title,
+    brew_method: brew_method,
+    content: content.split("\r\n")
+  }
+  File.open("data/recipes.yaml", "w") { |file| file.write(data.to_yaml) }
 end
 
 def forum_data
@@ -34,7 +67,7 @@ end
 def post_in_forum(message)
   data = forum_data || {}
   username = session[:username].to_s
-  time = format_time(Time.now)
+  time = Time.now
   message_id = data.keys.empty? ? 1 : data.keys.max + 1
   data[message_id] = {
     username: username,
@@ -42,23 +75,6 @@ def post_in_forum(message)
     message: message
   }
   File.open("data/forum.yaml", "w") { |file| file.write(data.to_yaml) }
-end
-
-def format_time(time)
-  # does not account for timezone differences
-  time = time.to_s[0..15]
-
-  hours = time[11..12].to_i
-  if hours > 11 || hours < 24
-    time << "PM"
-  else
-    time << "AM"
-  end
-
-  hours -= 12 if hours > 12
-  time[11..12] = hours.to_s
-
-  time
 end
 
 def users
@@ -200,7 +216,7 @@ get "/community/general" do
   erb :general, layout: :layout
 end
 
-post "/community/general" do
+post "/community/post" do
   message = params[:message]
   if !logged_in?
     set_message :error, "You must be logged in to do that."
@@ -210,11 +226,36 @@ post "/community/general" do
     post_in_forum(message)
     set_message :success, "Your message has been posted."
   end
-  redirect "/community/general"
+  redirect "/community"
 end
 
 get "/community/recipes" do
   erb :recipes, layout: :layout
+end
+
+get "/community/recipes/add" do
+  erb :add_recipe, layout: :layout
+end
+
+post "/community/recipes/add" do
+  title = params[:title]
+  brew_method = params[:brew_method]
+  content = params[:content]
+  post_recipe(title, brew_method, content)
+  redirect "/community/recipes"
+end
+
+get "/community/recipes/:id" do |id|
+  @recipe = recipe_data[id.to_i]
+  erb :recipe, layout: :layout
+end
+
+# get "/community/members" do
+#   erb :members, layout: :layout
+# end
+
+get "/community/post" do
+  erb :forum_post, layout: :layout
 end
 
 get "/profile/:username/edit" do |username|
@@ -239,9 +280,6 @@ post "/profile/:username/edit" do |username|
   @password = params[:password]
   if @username == ""
     set_message :error, "Username cannot be blank."
-    erb :edit_profile, layout: :layout
-  elsif @password == ""
-    set_message :error, "Password cannot be blank."
     erb :edit_profile, layout: :layout
   elsif users.keys.map(&:to_s).none? { |user| user == @username } ||
                                @username == session[:username].to_s

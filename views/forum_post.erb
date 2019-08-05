@@ -1,0 +1,10 @@
+<h2>Join the Conversation</h2>
+<form action="/community/post" method="post">
+  <textarea id="forum-post" name="message"></textarea><br>
+  <button type="submit">Post</button>
+</form>
+
+<% content_for :sub_menu do %>
+  <li><a class="nav-button" href="/community">General</a></li>
+  <li><a class="nav-button" href="/community/recipes">Recipes</a></li>
+<% end %>

@@ -2,7 +2,7 @@
 
 <form action="/signin" method="post">
   <label for="username">Username: </label>
-  <input name="username" value="<%= @username || "" %>"><br>
+  <input name="username" value="<%= @username || "" %>" autofocus><br>
   <label for="password">Password: </label>
   <input name="password" value=""><br>
   <button type=submit>Sign In</button>

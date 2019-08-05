@@ -3,7 +3,7 @@
   :password: secret
 :mattata:
   :full_name: Matt Clark
-  :email: clark.matthewr@gmail.com
+  :email: matt@email.com
   :brew_method: Aeropress
   :password: !ruby/string:BCrypt::Password
     str: "$2a$12$6xcE5cGHFITW227qtHDkKuwqhyRLf0bAXVhQL2I8ZTFh.5JwLQ6tm"
@@ -11,13 +11,13 @@
     cost: 12
     salt: "$2a$12$6xcE5cGHFITW227qtHDkKu"
     checksum: wqhyRLf0bAXVhQL2I8ZTFh.5JwLQ6tm
-:john:
-  :full_name: John Wayne
-  :email: jwayne@yahoo.com
-  :brew_method: v60
+:kevbot:
+  :full_name: Kevin
+  :email: kevin@email.com
+  :brew_method: Toddy Cold Brew
   :password: !ruby/string:BCrypt::Password
-    str: "$2a$12$TUK7nKdJGJV3l3tl.9wuzOK8WBhLVkFSEf3AQOnubFWBHUJFqFsWS"
+    str: "$2a$12$41IIj.o2pEyFzzNybcXiBOzhT8BO6woAUGnpVKrobTMsTIRfY5j7K"
     version: 2a
     cost: 12
-    salt: "$2a$12$TUK7nKdJGJV3l3tl.9wuzO"
-    checksum: K8WBhLVkFSEf3AQOnubFWBHUJFqFsWS
+    salt: "$2a$12$41IIj.o2pEyFzzNybcXiBO"
+    checksum: zhT8BO6woAUGnpVKrobTMsTIRfY5j7K
