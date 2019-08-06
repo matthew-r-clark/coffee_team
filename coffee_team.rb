@@ -34,12 +34,7 @@ helpers do
   end
 
   def format_time(time)
-    time.strftime("%b %-d, %Y   %l:%M %P")
-  end
-
-  def render_markdown(content)
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-    markdown.render(content)
+    time.strftime("%b %-d, %Y %l:%M %P")
   end
 end
 
@@ -171,12 +166,6 @@ get "/signin" do
   erb :signin, layout: :layout
 end
 
-get "/logout" do
-  session.delete(:username)
-  set_message :success, "You have been logged out."
-  redirect "/"
-end
-
 post "/signin" do
   username = params[:username]
   password = params[:password]
@@ -190,7 +179,12 @@ post "/signin" do
     @username = username
     erb :signin, layout: :layout
   end
+end
 
+get "/logout" do
+  session.delete(:username)
+  set_message :success, "You have been logged out."
+  redirect "/"
 end
 
 get "/users/create" do
@@ -227,6 +221,15 @@ end
 
 get "/community/general" do
   erb :general, layout: :layout
+end
+
+get "/community/post" do
+  if logged_in?
+    erb :forum_post, layout: :layout
+  else
+    set_message :error, "You must be logged in to do that."
+    redirect "/community"
+  end
 end
 
 post "/community/post" do
@@ -270,19 +273,6 @@ end
 get "/community/recipes/:id" do |id|
   @recipe = recipe_data[id.to_i]
   erb :recipe, layout: :layout
-end
-
-# get "/community/members" do
-#   erb :members, layout: :layout
-# end
-
-get "/community/post" do
-  if logged_in?
-    erb :forum_post, layout: :layout
-  else
-    set_message :error, "You must be logged in to do that."
-    redirect "/community"
-  end
 end
 
 get "/profile/:username/edit" do |username|
