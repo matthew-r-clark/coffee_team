@@ -164,6 +164,10 @@ get "/community" do
 end
 
 get "/signin" do
+  if logged_in?
+    set_message :error, "You are already signed in. Logout first to signin to a different profile."
+    redirect "/"
+  end
   erb :signin, layout: :layout
 end
 
