@@ -244,6 +244,9 @@ p {
   display: table;
   margin: auto;
   margin-bottom: 10px;
+  background-color: #eeeeee;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .edit-user p {
@@ -350,7 +353,7 @@ hr.forum-post {
   margin-bottom: 25px;
 }
 
-table.recipe {
+#recipe {
   padding: 10px;
   border-radius: 5px;
   background-color: #eeeeee;

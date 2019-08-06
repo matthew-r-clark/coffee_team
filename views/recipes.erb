@@ -2,20 +2,31 @@
 
 <a href="/community/recipes/add" class="btn-primary">Add Recipe</a>
 
-<table id="recipe-list">
-  <% get_recipes.each do |id, recipe| %>
-    <tr>
-      <td>
-        <a class="right-just" href="/community/recipes/<%= id %>"><%= recipe[:title] %></a>
-      </td>
-      <td>
-        <a class="left-just" href="/profile/<%= recipe[:username] %>"><%= recipe[:username] %></a>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<div id="msg-forum">
+    <ul id="msg-list">
+      <% get_recipes.each do |id, recipe| %>
+        <li class="msg-box">
+          <table class="msg-data">
+            <tr>
+              <td class="username">
+                  <a class="right-just" href="/community/recipes/<%= id %>">
+                    <%= recipe[:title] %>
+                  </a>
+              </td>
+              <td class="time">
+                  <a class="left-just" href="/profile/<%= recipe[:username] %>">
+                    <%= recipe[:username] %>
+                  </a>
+              </td>
+            </tr>
+          </table>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
 <% content_for :sub_menu do %>
+  <div class="spacer"></div>
   <li><a class="nav-button" href="/community">General</a></li>
   <li><a class="nav-button" href="/community/recipes">Recipes</a></li>
 <% end %>

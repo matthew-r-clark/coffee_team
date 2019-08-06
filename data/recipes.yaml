@@ -11,3 +11,52 @@
   - 4. Stir it.
   - 5. Plunge it.
   - 6. Enjoy!
+2:
+  :username: kevbot
+  :time: 2019-08-06 10:28:09.746459078 -05:00
+  :title: Tasty Cold Brew
+  :brew_method: Toddy Room Temp
+  :content:
+  - 'Prep:'
+  - 1:10 ration (beans:water)
+  - Need a large, sealable pitcher.
+  - "-"
+  - 1. Course grind beans.
+  - 2. Add water to pitcher.
+  - 3. Put ground beans into filter bags.
+  - 4. Submerge bags into water.
+  - 5. Let sit for 12 hours, room temp.
+  - 6. Pull coffee out, refrigerate.
+  - "-"
+  - "*Credit: Mattata"
+3:
+  :username: ryry
+  :time: 2019-08-06 11:00:42.754243567 -05:00
+  :title: caveman coffee
+  :brew_method: french press
+  :content:
+  - insert coffee
+  - insert hot water
+  - wait a few minutes
+  - done
+4:
+  :username: jarambe
+  :time: 2019-08-06 11:04:46.846620183 -05:00
+  :title: Hot brewed iced coffee
+  :brew_method: Clever
+  :content:
+  - 1. Medium grind (14:1, excluding ice melt)
+  - 2. Heat coffee to 201 degrees F
+  - 3. Place clever over carafe with 200g ice.
+  - 4. Bloom for 30 seconds.
+  - 5. Slowly pour remaining water.
+  - 6. Stir once ice is melted.
+5:
+  :username: mattata
+  :time: 2019-08-06 11:05:35.586336451 -05:00
+  :title: Test Recipe
+  :brew_method: n/a
+  :content:
+  - Do first thing.
+  - Do second thing.
+  - Finish.

@@ -17,3 +17,32 @@
 <% if @username == session[:username] %>
   <a class="btn-primary" href="/profile/<%= @username %>/edit">Edit Profile</a>
 <% end %>
+
+<br><br>
+<h2><%= @username %>'s recipes</h2>
+<div id="msg-forum">
+    <ul id="msg-list">
+      <% get_user_recipes(@username).each do |id, recipe| %>
+        <li class="msg-box">
+          <table class="msg-data">
+            <tr>
+              <td class="left-just"><%= recipe[:title] %></td>
+              <td class="right-just"><%= recipe[:brew_method] %></td>
+            </tr>
+            <tr>
+                <td class="left-just">
+                  <a href="/profile/<%= recipe[:username] %>"><%= recipe[:username] %></a>
+                </td>
+                <td class="right-just"><%= format_time(recipe[:time]) %></td>
+              </tr>
+          </table>
+          <hr class="forum-post">
+          <p class="msg-content">
+            <% recipe[:content].each do |line| %>
+              <div class="left-just"><%= line %></div>
+            <% end %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  </div>

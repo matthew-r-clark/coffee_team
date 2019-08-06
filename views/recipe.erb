@@ -1,25 +1,30 @@
-<table class="recipe">
-  <tr>
-    <td class="left-just"><%= @recipe[:title] %></td>
-    <td class="right-just"><%= @recipe[:brew_method] %></td>
-  </tr>
-  <tr>
-    <td class="left-just">
-      <a href="/profile/<%= @recipe[:username] %>"><%= @recipe[:username] %></a>
-    </td>
-    <td class="right-just"><%= format_time(@recipe[:time]) %></td>
-  </tr>
-  <hr class="forum-post">
-  <tr>
-    <td>
-      <% @recipe[:content].each do |line| %>
-        <div style="text-align:left;"><%= line %></div>
-      <% end %>
-    </td>
-  </tr>
-</table>
+<div id="msg-forum">
+    <ul id="msg-list">
+        <li class="msg-box">
+          <table class="msg-data">
+            <tr>
+              <td class="left-just"><%= @recipe[:title] %></td>
+              <td class="right-just"><%= @recipe[:brew_method] %></td>
+            </tr>
+            <tr>
+                <td class="left-just">
+                  <a href="/profile/<%= @recipe[:username] %>"><%= @recipe[:username] %></a>
+                </td>
+                <td class="right-just"><%= format_time(@recipe[:time]) %></td>
+              </tr>
+          </table>
+          <hr class="forum-post">
+          <p class="msg-content">
+            <% @recipe[:content].each do |line| %>
+              <div class="left-just"><%= line %></div>
+            <% end %>
+          </p>
+        </li>
+    </ul>
+  </div>
 
 <% content_for :sub_menu do %>
+  <div class="spacer"></div>
   <li><a class="nav-button" href="/community">General</a></li>
   <li><a class="nav-button" href="/community/recipes">Recipes</a></li>
 <% end %>

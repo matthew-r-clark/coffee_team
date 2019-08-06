@@ -21,3 +21,23 @@
     cost: 12
     salt: "$2a$12$41IIj.o2pEyFzzNybcXiBO"
     checksum: zhT8BO6woAUGnpVKrobTMsTIRfY5j7K
+:ryry:
+  :full_name: Ryan
+  :email: ryan@email.com
+  :brew_method: French Press
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$9ISgBCdFPSTyx4c40BjWWO4UJbISxZ2OqAFXTOEnG1QckqAl4AmZ2"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$9ISgBCdFPSTyx4c40BjWWO"
+    checksum: 4UJbISxZ2OqAFXTOEnG1QckqAl4AmZ2
+:jarambe:
+  :full_name: Josh
+  :email: josh@email.com
+  :brew_method: v60
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$QYVlLB4IPCmmLJjplg5PmOohXK13azKbRGGsY5JGp8QtfSnKn2jNO"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$QYVlLB4IPCmmLJjplg5PmO"
+    checksum: ohXK13azKbRGGsY5JGp8QtfSnKn2jNO

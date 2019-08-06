@@ -29,6 +29,10 @@ helpers do
     recipe_data.sort_by { |_, item| item[:title] }
   end
 
+  def get_user_recipes(username)
+    get_recipes.select { |_, item| item[:username] == username }
+  end
+
   def format_time(time)
     time.strftime("%b %-d, %Y   %l:%M %P")
   end
@@ -54,9 +58,14 @@ def post_recipe(title, brew_method, content)
     time: time,
     title: title,
     brew_method: brew_method,
-    content: content.split("\r\n")
+    content: process_recipe(content)
   }
   File.open("data/recipes.yaml", "w") { |file| file.write(data.to_yaml) }
+end
+
+def process_recipe(content)
+  content.gsub!("\r\n\r\n", "\r\n" + " " + "\r\n")
+  content.split("\r\n")
 end
 
 def forum_data
