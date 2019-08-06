@@ -1,14 +1,18 @@
+<h2><%= @recipe[:title] %></h2>
+
 <div id="msg-forum">
     <ul id="msg-list">
         <li class="msg-box">
           <table class="msg-data">
             <tr>
-              <td class="left-just"><%= @recipe[:title] %></td>
+              <td class="left-just">
+                <a href="/profile/<%= @recipe[:username] %>"><%= @recipe[:username] %></a>
+              </td>
               <td class="right-just"><%= @recipe[:brew_method] %></td>
             </tr>
             <tr>
                 <td class="left-just">
-                  <a href="/profile/<%= @recipe[:username] %>"><%= @recipe[:username] %></a>
+                  
                 </td>
                 <td class="right-just"><%= format_time(@recipe[:time]) %></td>
               </tr>
