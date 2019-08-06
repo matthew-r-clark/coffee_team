@@ -9,3 +9,7 @@ gem "rack-test"
 gem "minitest"
 gem "redcarpet"
 gem 'bcrypt', '~> 3.1', '>= 3.1.13'
+
+group :production do
+  gem "puma"
+end
