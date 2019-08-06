@@ -1,2 +1,2 @@
-require "./book_viewer"
+require "./coffee_team.rb"
 run Sinatra::Application
