@@ -243,10 +243,19 @@ get "/community/recipes" do
 end
 
 get "/community/recipes/add" do
-  erb :add_recipe, layout: :layout
+  if logged_in?
+    erb :add_recipe, layout: :layout
+  else
+    set_message :error, "You must be logged in to do that."
+    redirect "/community/recipes"
+  end
 end
 
 post "/community/recipes/add" do
+  if !logged_in?
+    set_message :error, "You must be logged in to do that."
+    redirect "/community/recipes"
+  end
   title = params[:title]
   brew_method = params[:brew_method]
   content = params[:content]
@@ -264,7 +273,12 @@ end
 # end
 
 get "/community/post" do
-  erb :forum_post, layout: :layout
+  if logged_in?
+    erb :forum_post, layout: :layout
+  else
+    set_message :error, "You must be logged in to do that."
+    redirect "/community"
+  end
 end
 
 get "/profile/:username/edit" do |username|
